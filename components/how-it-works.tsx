@@ -44,55 +44,63 @@ export function HowItWorks() {
           </div>
 
           <div className="hidden md:block">
-            <div className="relative grid grid-cols-3 gap-8">
-              <div className="absolute left-[16%] right-[16%] top-16 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.15),rgb(255_140_0),rgb(255_140_0/0.15))]" />
-
+            <div className="mb-8 grid grid-cols-3 gap-8">
               {steps.map((step, idx) => {
                 const Icon = step.icon;
+
                 return (
-                  <div key={step.number} className="soft-card relative rounded-[1.8rem] px-8 pb-8 pt-10 text-center">
-                    <div className="mb-6 flex justify-center">
-                      <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] shadow-[0_18px_40px_rgba(255,140,0,0.24)]">
+                  <div key={step.number} className="relative flex justify-center">
+                    {idx > 0 && (
+                      <div className="absolute left-0 right-1/2 top-10 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.08),rgb(255_140_0/0.55))]" />
+                    )}
+                    {idx < steps.length - 1 && (
+                      <div className="absolute left-1/2 right-0 top-10 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.55),rgb(255_140_0/0.08))]" />
+                    )}
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] shadow-[0_18px_40px_rgba(255,140,0,0.24)] ring-8 ring-[rgb(248_250_252)]">
                         <Icon className="h-10 w-10 text-white" />
                       </div>
-                    </div>
-                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
-                      Step {step.number}
-                    </div>
-                    <h3 className="font-display text-2xl font-bold text-navy mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-body leading-relaxed">
-                      {step.description}
-                    </p>
-                    {idx < steps.length - 1 && (
-                      <div className="absolute right-[-1.5rem] top-14 z-10 hidden h-10 w-10 items-center justify-center rounded-full bg-white text-orange shadow-[0_10px_30px_rgba(11,49,92,0.1)] lg:flex">
-                        →
+                      <div className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
+                        Step {step.number}
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               })}
             </div>
+
+            <div className="grid grid-cols-3 gap-8">
+              {steps.map((step) => (
+                <div key={step.number} className="soft-card rounded-[1.8rem] px-8 pb-8 pt-8 text-center">
+                  <h3 className="font-display mb-3 text-2xl font-bold text-navy">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-body leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="md:hidden space-y-8">
-            {steps.map((step) => {
+            {steps.map((step, idx) => {
               const Icon = step.icon;
+
               return (
-                <div key={step.number} className="soft-card flex gap-6 rounded-[1.6rem] p-6">
-                  <div className="flex flex-col items-center">
-                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))]">
+                <div key={step.number} className="relative pl-22">
+                  {idx < steps.length - 1 && (
+                    <div className="absolute -bottom-8 left-8 top-16 w-px bg-[linear-gradient(180deg,rgb(255_140_0/0.55),rgb(255_140_0/0.08))]" />
+                  )}
+                  <div className="absolute left-0 top-0 flex w-16 flex-col items-center">
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] ring-6 ring-[rgb(248_250_252)]">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
-                    {step.number < steps.length && (
-                      <div className="mt-2 h-8 w-1 bg-orange"></div>
-                    )}
                   </div>
-                  <div className="pt-2 pb-4">
+                  <div className="soft-card rounded-[1.6rem] p-6">
                     <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-orange">Step {step.number}</div>
-                    <h3 className="font-display text-lg font-bold text-navy mb-1">
-                      Step {step.number}: {step.title}
+                    <h3 className="font-display mb-1 text-lg font-bold text-navy">
+                      {step.title}
                     </h3>
                     <p className="text-gray-body">
                       {step.description}
@@ -103,21 +111,13 @@ export function HowItWorks() {
             })}
           </div>
 
-          <div className="soft-panel mt-14 rounded-4xl px-6 py-8 sm:px-8">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <div className="font-display text-2xl font-bold text-navy">You send the photos. We handle the rest.</div>
-                <p className="mt-2 max-w-2xl text-gray-body">
-                  Clear quote, scheduled pickup, documented removal, and a final handoff that leaves the site clean.
-                </p>
-              </div>
-              <Button
-                onClick={() => setShowModal(true)}
-                className="h-12 rounded-full bg-orange px-8 font-bold text-white shadow-[0_18px_40px_rgba(255,140,0,0.24)] hover:bg-orange/90"
-              >
-                Request Your Quote
-              </Button>
-            </div>
+          <div className="mt-14 text-center">
+            <Button
+              onClick={() => setShowModal(true)}
+              className="h-12 rounded-full bg-orange px-8 font-bold text-white shadow-[0_18px_40px_rgba(255,140,0,0.24)] hover:bg-orange/90"
+            >
+              Request Your Quote
+            </Button>
           </div>
         </div>
       </section>

@@ -93,8 +93,8 @@ export function TestimonialsSection() {
         </div>
 
         <div className="relative">
-          <Card className="min-h-80 rounded-4xl border border-white/12 bg-[rgb(255_255_255/0.08)] p-8 text-white shadow-[0_30px_80px_rgba(0,0,0,0.22)] backdrop-blur-md md:p-12">
-            <div className="mb-6 flex items-center justify-between gap-4">
+          <Card className="min-h-72 rounded-4xl border border-white/10 bg-transparent p-8 text-white shadow-none md:p-10">
+            <div className="mb-6 flex items-center gap-4">
               <div className="flex gap-1">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
@@ -102,9 +102,6 @@ export function TestimonialsSection() {
                     className="w-5 h-5 fill-orange text-orange"
                   />
                 ))}
-              </div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-[rgb(255_209_143)]">
-                <Quote className="h-5 w-5" />
               </div>
             </div>
 
@@ -130,11 +127,11 @@ export function TestimonialsSection() {
             </div>
           </Card>
 
-          <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between px-0 -mx-16">
+          <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-0 right-0 justify-between px-0 -mx-12">
             <button
               onClick={goToPrevious}
               onMouseEnter={() => setAutoRotate(false)}
-              className="rounded-full border border-white/14 bg-white/10 p-3 text-white transition-colors hover:bg-white/16"
+              className="rounded-full border border-white/14 bg-transparent p-3 text-white transition-colors hover:bg-white/10"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -142,7 +139,7 @@ export function TestimonialsSection() {
             <button
               onClick={goToNext}
               onMouseEnter={() => setAutoRotate(false)}
-              className="rounded-full border border-white/14 bg-white/10 p-3 text-white transition-colors hover:bg-white/16"
+              className="rounded-full border border-white/14 bg-transparent p-3 text-white transition-colors hover:bg-white/10"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />
@@ -152,14 +149,14 @@ export function TestimonialsSection() {
           <div className="md:hidden flex justify-center gap-2 mt-6">
             <button
               onClick={goToPrevious}
-              className="rounded-full border border-white/14 bg-white/10 p-2 text-white transition-colors hover:bg-white/16"
+              className="rounded-full border border-white/14 bg-transparent p-2 text-white transition-colors hover:bg-white/10"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={goToNext}
-              className="rounded-full border border-white/14 bg-white/10 p-2 text-white transition-colors hover:bg-white/16"
+              className="rounded-full border border-white/14 bg-transparent p-2 text-white transition-colors hover:bg-white/10"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
@@ -173,8 +170,8 @@ export function TestimonialsSection() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-3 rounded-full transition-all ${index === currentIndex
-                  ? 'bg-orange w-8'
-                  : 'bg-white/25 w-3'
+                ? 'bg-orange w-8'
+                : 'bg-white/25 w-3'
                 }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />

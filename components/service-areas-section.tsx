@@ -1,5 +1,20 @@
 import { Card } from '@/components/ui/card';
-import { Check, Compass, MapPin, PhoneCall } from 'lucide-react';
+import { ArrowRight, Check, Compass, MapPin, PhoneCall } from 'lucide-react';
+
+const serviceRegions = [
+  {
+    title: 'Atlantic Coast',
+    description: 'Palm Beach, Fort Lauderdale, Miami, and surrounding marinas.',
+  },
+  {
+    title: 'Gulf Coast',
+    description: 'Tampa, St. Petersburg, Sarasota, Naples, Fort Myers, and nearby areas.',
+  },
+  {
+    title: 'Florida Keys',
+    description: 'Key West, Marathon, and other Keys recovery and haul-away jobs.',
+  },
+];
 
 const serviceAreas = [
   'Fort Lauderdale',
@@ -36,62 +51,57 @@ export function ServiceAreasSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="soft-panel rounded-4xl p-8">
-            <div className="relative flex h-80 items-center justify-center overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgb(236_244_249),rgb(255_255_255))]">
-              <div className="absolute inset-0 grid-pattern opacity-40" />
-              <div className="absolute inset-0 opacity-45">
-                <div className="absolute left-[18%] top-[20%] h-24 w-24 rounded-full bg-[rgb(255_140_0/0.16)] blur-xl" />
-                <div className="absolute right-[20%] top-[30%] h-16 w-16 rounded-full bg-[rgb(11_49_92/0.16)] blur-lg" />
-                <div className="absolute bottom-[18%] left-[35%] h-24 w-24 rounded-full bg-[rgb(255_140_0/0.16)] blur-xl" />
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div className="soft-card rounded-4xl p-7 sm:p-8">
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[rgb(255_140_0/0.1)]">
+                <MapPin className="h-7 w-7 text-orange" />
               </div>
-              <div className="text-center relative z-10">
-                <div className="mx-auto mb-4 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-white shadow-[0_14px_36px_rgba(11,49,92,0.12)]">
-                  <MapPin className="w-10 h-10 text-orange" />
-                </div>
-                <p className="font-display text-2xl font-bold text-navy">
-                  Statewide Coverage
-                </p>
-                <p className="mt-2 text-gray-body">
-                  Dispatch support across Atlantic coast, Gulf coast, inland marinas, and the Keys.
-                </p>
+              <div>
+                <h3 className="font-display text-2xl font-bold text-navy">Statewide coverage</h3>
+                <p className="mt-1 text-gray-body">Dispatch support for coastal properties, marinas, and inland haul-out access points.</p>
               </div>
             </div>
-          </div>
 
-          <div className="space-y-6">
-            <h3 className="font-display text-2xl font-bold text-navy mb-6">
-              Primary Service Areas
-            </h3>
-
-            <div className="grid grid-cols-2 gap-4">
-              {serviceAreas.map((area, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 rounded-2xl border border-[rgb(11_49_92/0.08)] bg-white px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-[rgb(255_140_0/0.28)] hover:shadow-[0_14px_28px_rgba(11,49,92,0.08)]"
-                >
-                  <Check className="h-5 w-5 shrink-0 text-orange" />
-                  <span className="text-navy font-medium">{area}</span>
+            <div className="mt-8 space-y-4">
+              {serviceRegions.map((region) => (
+                <div key={region.title} className="rounded-3xl border border-[rgb(11_49_92/0.08)] bg-[rgb(248_249_250)] px-5 py-4">
+                  <div className="font-display text-lg font-bold text-navy">{region.title}</div>
+                  <p className="mt-1 text-sm leading-6 text-gray-body">{region.description}</p>
                 </div>
               ))}
             </div>
 
-            <Card className="soft-card rounded-[1.6rem] border-2 border-[rgb(255_140_0/0.18)] p-6">
-              <p className="mb-3 text-sm text-gray-body">
-                <span className="font-bold text-navy">Outside these cities?</span>
-              </p>
-              <a
-                href="tel:+15614040669"
-                className="inline-flex items-center gap-2 font-bold text-orange transition-colors hover:text-orange/80"
-              >
-                <PhoneCall className="h-4 w-4" />
-                Call us at (561) 404-0669
-                <span className="text-lg">→</span>
-              </a>
-              <p className="mt-3 text-sm text-gray-body">
-                If the haul-out logistics make sense, we can often service surrounding locations as well.
-              </p>
-            </Card>
+            <a
+              href="tel:+15614040669"
+              className="mt-8 inline-flex items-center gap-2 font-semibold text-orange transition-colors hover:text-orange/80"
+            >
+              <PhoneCall className="h-4 w-4" />
+              Need to confirm your location?
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="rounded-4xl border border-[rgb(11_49_92/0.08)] bg-white p-6 sm:p-8">
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-display text-2xl font-bold text-navy">Primary service areas</h3>
+              <div className="hidden rounded-full bg-[rgb(255_140_0/0.1)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-orange sm:inline-flex">
+                Mobile statewide
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {serviceAreas.map((area) => (
+                <div
+                  key={area}
+                  className="flex items-center gap-3 rounded-2xl border border-[rgb(11_49_92/0.08)] px-4 py-3"
+                >
+                  <Check className="h-5 w-5 shrink-0 text-orange" />
+                  <span className="text-sm font-medium text-navy sm:text-base">{area}</span>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>

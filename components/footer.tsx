@@ -110,7 +110,6 @@ export function Footer() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-sm text-white/56">
               <p>© {currentYear} East Coast Boat Removal. All rights reserved.</p>
-              <p className="mt-2">Serving Florida boat removal and disposal since 2015</p>
             </div>
             <div className="flex justify-end gap-6 text-sm">
               <Link href="/#contact" className="text-white/56 transition-colors hover:text-[rgb(255_209_143)]">

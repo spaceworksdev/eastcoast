@@ -63,19 +63,14 @@ export function ServicesSection() {
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgb(255_140_0/0.1)]">
                       <Icon className="h-7 w-7 text-orange" />
                     </div>
-                    {service.id === 1 && (
-                      <span className="rounded-full bg-[rgb(11_49_92/0.06)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-navy">
-                        Most Requested
-                      </span>
-                    )}
                   </div>
                   <h3 className="font-display text-2xl font-bold text-navy mb-3">
                     {service.title}
                   </h3>
-                  <p className="min-h-20 text-gray-body leading-relaxed mb-6">
+                  <p className="text-gray-body leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <div className="mb-8 space-y-3">
+                  <div className="mb-8 space-y-2.5 border-t border-[rgb(11_49_92/0.08)] pt-5">
                     {service.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3 text-sm text-gray-body">
                         <div className="mt-1.5 h-2 w-2 rounded-full bg-orange" />
@@ -102,23 +97,6 @@ export function ServicesSection() {
                 </Card>
               );
             })}
-          </div>
-
-          <div className="surface-tint mt-12 rounded-4xl border border-[rgb(11_49_92/0.08)] px-6 py-8 sm:px-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <div className="font-display text-2xl font-bold text-navy">Need something more specialized?</div>
-                <p className="mt-2 max-w-2xl text-gray-body">
-                  We also handle marina recovery, transport-ready removals, storm-damaged vessels, and multi-boat cleanup projects.
-                </p>
-              </div>
-              <Button
-                asChild
-                className="h-11 rounded-full bg-orange px-6 text-white hover:bg-orange/90"
-              >
-                <a href="tel:+15614040669">Call About Your Project</a>
-              </Button>
-            </div>
           </div>
         </div>
       </section>

@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import { Card } from '@/components/ui/card';
-import { ArrowRight, Camera, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Camera } from 'lucide-react';
 
 interface GalleryItem {
   id: number;
@@ -62,7 +61,7 @@ export function GallerySection() {
           {galleryItems.map((item, idx) => (
             <Card
               key={item.id}
-              className="soft-card overflow-hidden rounded-[1.8rem] border-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(11,49,92,0.12)]"
+              className="soft-card overflow-hidden rounded-[1.8rem] border-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_rgba(11,49,92,0.1)]"
             >
               <div className="relative h-72 w-full overflow-hidden bg-gray-light">
                 <Image
@@ -73,12 +72,10 @@ export function GallerySection() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={idx === 0}
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_25%,rgba(11,49,92,0.82)_100%)]" />
-                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-navy">
+                <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-navy">
                   {item.turnaround}
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/12 p-4 backdrop-blur-md">
-                  <div className="mb-1 text-xs font-semibold uppercase tracking-[0.22em] text-[rgb(255_209_143)]">Project Snapshot</div>
+                <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent,rgba(11,49,92,0.72))] px-6 pb-5 pt-12">
                   <div className="font-display text-2xl font-bold text-white">{item.title}</div>
                 </div>
               </div>
@@ -91,29 +88,6 @@ export function GallerySection() {
               </div>
             </Card>
           ))}
-        </div>
-
-        <div className="surface-tint mt-12 rounded-4xl border border-[rgb(11_49_92/0.08)] px-6 py-8 sm:px-8">
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <div className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-orange">
-                <Sparkles className="h-4 w-4" />
-                Clean finish, not just haul-away
-              </div>
-              <p className="mt-3 max-w-2xl text-gray-body leading-7">
-                Every project is scoped for access, equipment, safety, and cleanup so the job ends with the site usable again.
-              </p>
-            </div>
-            <Button
-              asChild
-              className="h-11 rounded-full bg-navy px-6 text-white hover:bg-navy/90"
-            >
-              <a href="#contact">
-                Request a Project Review
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
