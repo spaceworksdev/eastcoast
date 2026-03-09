@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -39,18 +40,18 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex shrink-0 items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] text-sm font-bold text-white shadow-[0_12px_32px_rgba(255,140,0,0.35)]">
-              ECB
-            </div>
-            <div>
-              <div className={cn('font-display text-base font-semibold uppercase tracking-[0.2em]', isScrolled ? 'text-navy' : 'text-white')}>
-                East Coast
-              </div>
-              <div className={cn('text-xs font-medium', isScrolled ? 'text-gray-body' : 'text-white/72')}>
-                Boat Removal & Recovery
-              </div>
-            </div>
+          <Link href="/" className="flex shrink-0 items-center">
+            <Image
+              src="/eastcoast.png"
+              alt="East Coast Boat Removal"
+              width={200}
+              height={52}
+              className={cn(
+                'h-auto w-[160px] object-contain transition-all sm:w-[200px]',
+                isScrolled ? '' : 'brightness-0 invert'
+              )}
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center space-x-8 md:flex">
@@ -60,7 +61,7 @@ export function Header() {
                 href={item.href}
                 className={cn(
                   'text-sm font-medium transition-colors',
-                  isScrolled ? 'text-navy hover:text-orange' : 'text-white/88 hover:text-white'
+                  isScrolled ? 'text-navy hover:text-teal' : 'text-white/88 hover:text-white'
                 )}
               >
                 {item.label}
@@ -74,7 +75,7 @@ export function Header() {
               className={cn(
                 'rounded-full px-4 py-2 text-sm font-semibold transition-colors',
                 isScrolled
-                  ? 'bg-[rgb(255_140_0/0.08)] text-orange hover:bg-[rgb(255_140_0/0.14)]'
+                  ? 'bg-[rgb(0_166_153/0.08)] text-teal hover:bg-[rgb(0_166_153/0.14)]'
                   : 'bg-white/10 text-white hover:bg-white/16'
               )}
             >
@@ -82,7 +83,7 @@ export function Header() {
             </a>
             <Button
               asChild
-              className="rounded-full bg-orange px-6 py-2 font-bold text-white shadow-[0_16px_32px_rgba(255,140,0,0.3)] transition-all hover:-translate-y-0.5 hover:bg-orange/90"
+              className="rounded-full bg-teal px-6 py-2 font-bold text-white shadow-[0_16px_32px_rgba(0,166,153,0.3)] transition-all hover:-translate-y-0.5 hover:bg-teal/90"
             >
               <a href="/#contact">Get Quote</a>
             </Button>
@@ -117,14 +118,14 @@ export function Header() {
             </div>
             <a
               href="tel:+15614040669"
-              className="mt-4 block rounded-2xl bg-[rgb(255_140_0/0.08)] px-4 py-3 font-bold text-orange"
+              className="mt-4 block rounded-2xl bg-[rgb(0_166_153/0.08)] px-4 py-3 font-bold text-teal"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               (561) 404-0669
             </a>
             <Button
               asChild
-              className="mt-3 w-full rounded-2xl bg-orange px-6 py-3 font-bold text-white transition-colors hover:bg-orange/90"
+              className="mt-3 w-full rounded-2xl bg-teal px-6 py-3 font-bold text-white transition-colors hover:bg-teal/90"
             >
               <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
                 Get Quote

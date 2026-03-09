@@ -16,7 +16,7 @@ export default function Home() {
       <StickyCallButton />
       <main className="relative min-h-screen overflow-hidden bg-transparent">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-136 bg-[radial-gradient(circle_at_top,rgb(236_244_249),transparent_55%)]" />
-        <div className="pointer-events-none absolute -right-40 top-112 h-104 w-104 rounded-full bg-[rgb(255_140_0/0.07)] blur-3xl" />
+        <div className="pointer-events-none absolute -right-40 top-112 h-104 w-104 rounded-full bg-[rgb(0_166_153/0.06)] blur-3xl" />
         <Header />
         <HeroSection />
         <TrustBar />

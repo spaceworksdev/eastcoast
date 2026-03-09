@@ -11,7 +11,7 @@ export function FinalCTA() {
     <>
       <section id="contact" className="bg-[rgb(11_49_92)] py-24 text-white">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="mx-auto mb-5 inline-flex rounded-full border border-white/12 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[rgb(255_209_143)]">
+          <div className="mx-auto mb-5 inline-flex rounded-full border border-white/12 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[rgb(150_228_222)]">
             Fast Scheduling. Clear Pricing. Clean Finish.
           </div>
 
@@ -23,7 +23,7 @@ export function FinalCTA() {
 
           <a
             href="tel:+15614040669"
-            className="mt-8 block font-display text-3xl font-bold text-[rgb(255_198_116)] transition-colors hover:text-[rgb(255_209_143)]"
+            className="mt-8 block font-display text-3xl font-bold text-[rgb(120_218_210)] transition-colors hover:text-[rgb(150_228_222)]"
           >
             (561) 404-0669
           </a>
@@ -31,7 +31,7 @@ export function FinalCTA() {
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <Button
               onClick={() => setShowModal(true)}
-              className="h-12 rounded-full bg-orange px-8 text-lg font-bold text-white transition-colors hover:bg-orange/90"
+              className="h-12 rounded-full bg-teal px-8 text-lg font-bold text-white transition-colors hover:bg-teal/90"
             >
               Get Instant Quote
             </Button>

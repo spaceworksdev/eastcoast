@@ -46,7 +46,7 @@ export function GallerySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-16 max-w-3xl text-center">
           <div className="section-kicker mb-5">
-            <Camera className="h-4 w-4 text-orange" />
+            <Camera className="h-4 w-4 text-teal" />
             Recent Work
           </div>
           <h2 className="section-title mb-5">
@@ -81,7 +81,7 @@ export function GallerySection() {
               </div>
 
               <div className="p-6">
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-orange">{item.description}</p>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-teal">{item.description}</p>
                 <p className="text-sm leading-7 text-gray-body">
                   {item.outcome}
                 </p>

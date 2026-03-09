@@ -51,16 +51,16 @@ export function HowItWorks() {
                 return (
                   <div key={step.number} className="relative flex justify-center">
                     {idx > 0 && (
-                      <div className="absolute left-0 right-1/2 top-10 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.08),rgb(255_140_0/0.55))]" />
+                      <div className="absolute left-0 right-1/2 top-10 h-px bg-[linear-gradient(90deg,rgb(0_166_153/0.08),rgb(0_166_153/0.55))]" />
                     )}
                     {idx < steps.length - 1 && (
-                      <div className="absolute left-1/2 right-0 top-10 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.55),rgb(255_140_0/0.08))]" />
+                      <div className="absolute left-1/2 right-0 top-10 h-px bg-[linear-gradient(90deg,rgb(0_166_153/0.55),rgb(0_166_153/0.08))]" />
                     )}
                     <div className="relative z-10 flex flex-col items-center">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] shadow-[0_18px_40px_rgba(255,140,0,0.24)] ring-8 ring-[rgb(248_250_252)]">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(0_166_153),rgb(64_200_188))] shadow-[0_18px_40px_rgba(0,166,153,0.24)] ring-8 ring-[rgb(248_250_252)]">
                         <Icon className="h-10 w-10 text-white" />
                       </div>
-                      <div className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
+                      <div className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-teal">
                         Step {step.number}
                       </div>
                     </div>
@@ -90,15 +90,15 @@ export function HowItWorks() {
               return (
                 <div key={step.number} className="relative pl-22">
                   {idx < steps.length - 1 && (
-                    <div className="absolute -bottom-8 left-8 top-16 w-px bg-[linear-gradient(180deg,rgb(255_140_0/0.55),rgb(255_140_0/0.08))]" />
+                    <div className="absolute -bottom-8 left-8 top-16 w-px bg-[linear-gradient(180deg,rgb(0_166_153/0.55),rgb(0_166_153/0.08))]" />
                   )}
                   <div className="absolute left-0 top-0 flex w-16 flex-col items-center">
-                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] ring-6 ring-[rgb(248_250_252)]">
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(0_166_153),rgb(64_200_188))] ring-6 ring-[rgb(248_250_252)]">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
                   <div className="soft-card rounded-[1.6rem] p-6">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-orange">Step {step.number}</div>
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-teal">Step {step.number}</div>
                     <h3 className="font-display mb-1 text-lg font-bold text-navy">
                       {step.title}
                     </h3>
@@ -114,7 +114,7 @@ export function HowItWorks() {
           <div className="mt-14 text-center">
             <Button
               onClick={() => setShowModal(true)}
-              className="h-12 rounded-full bg-orange px-8 font-bold text-white shadow-[0_18px_40px_rgba(255,140,0,0.24)] hover:bg-orange/90"
+              className="h-12 rounded-full bg-teal px-8 font-bold text-white shadow-[0_18px_40px_rgba(0,166,153,0.24)] hover:bg-teal/90"
             >
               Request Your Quote
             </Button>

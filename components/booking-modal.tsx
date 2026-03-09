@@ -88,7 +88,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 onChange={handleChange}
                 placeholder="John Doe"
                 required
-                className="border-gray-light focus:border-orange focus:ring-orange"
+                className="border-gray-light focus:border-teal focus:ring-teal"
               />
             </div>
 
@@ -103,7 +103,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 onChange={handleChange}
                 placeholder="john@example.com"
                 required
-                className="border-gray-light focus:border-orange focus:ring-orange"
+                className="border-gray-light focus:border-teal focus:ring-teal"
               />
             </div>
 
@@ -118,7 +118,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 onChange={handleChange}
                 placeholder="(561) 404-0669"
                 required
-                className="border-gray-light focus:border-orange focus:ring-orange"
+                className="border-gray-light focus:border-teal focus:ring-teal"
               />
             </div>
 
@@ -130,7 +130,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 name="boatType"
                 value={formData.boatType}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-light rounded-lg focus:border-orange focus:ring-orange bg-white text-navy"
+                className="w-full px-3 py-2 border border-gray-light rounded-lg focus:border-teal focus:ring-teal bg-white text-navy"
               >
                 <option value="">Select boat type...</option>
                 <option value="sailboat">Sailboat</option>
@@ -150,7 +150,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 name="boatSize"
                 value={formData.boatSize}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-light rounded-lg focus:border-orange focus:ring-orange bg-white text-navy"
+                className="w-full px-3 py-2 border border-gray-light rounded-lg focus:border-teal focus:ring-teal bg-white text-navy"
               >
                 <option value="">Select size range...</option>
                 <option value="under-15">Under 15 feet</option>
@@ -170,7 +170,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 value={formData.details}
                 onChange={handleChange}
                 placeholder="Describe the boat condition, location, and any specific requirements..."
-                className="resize-none border-gray-light focus:border-orange focus:ring-orange"
+                className="resize-none border-gray-light focus:border-teal focus:ring-teal"
                 rows={4}
               />
             </div>
@@ -178,7 +178,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-orange hover:bg-orange/90 text-white font-bold py-3 rounded-lg transition-colors"
+              className="w-full bg-teal hover:bg-teal/90 text-white font-bold py-3 rounded-lg transition-colors"
             >
               {isSubmitting ? 'Submitting...' : 'Get Your Free Quote'}
             </Button>

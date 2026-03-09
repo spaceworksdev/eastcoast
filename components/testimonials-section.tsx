@@ -99,7 +99,7 @@ export function TestimonialsSection() {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-orange text-orange"
+                    className="w-5 h-5 fill-teal text-teal"
                   />
                 ))}
               </div>
@@ -117,8 +117,8 @@ export function TestimonialsSection() {
                 {testimonial.location} • {testimonial.date}
               </div>
               {testimonial.verified && (
-                <div className="flex items-center gap-2 text-xs font-medium text-[rgb(255_209_143)]">
-                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-orange text-xs text-white">
+                <div className="flex items-center gap-2 text-xs font-medium text-[rgb(150_228_222)]">
+                  <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-teal text-xs text-white">
                     ✓
                   </span>
                   Verified Google Review
@@ -170,7 +170,7 @@ export function TestimonialsSection() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-3 rounded-full transition-all ${index === currentIndex
-                ? 'bg-orange w-8'
+                ? 'bg-teal w-8'
                 : 'bg-white/25 w-3'
                 }`}
               aria-label={`Go to testimonial ${index + 1}`}

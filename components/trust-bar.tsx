@@ -11,7 +11,7 @@ export function TrustBar() {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="h-5 w-5 fill-orange text-orange"
+                    className="h-5 w-5 fill-teal text-teal"
                   />
                 ))}
               </div>
@@ -24,8 +24,8 @@ export function TrustBar() {
 
           <div className="rounded-[1.4rem] border border-[rgb(11_49_92/0.08)] bg-white/80 px-5 py-5 backdrop-blur-md">
             <div className="flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(255_140_0/0.1)]">
-                <Shield className="h-6 w-6 shrink-0 text-orange" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(0_166_153/0.1)]">
+                <Shield className="h-6 w-6 shrink-0 text-teal" />
               </div>
               <div>
                 <div className="font-display text-xl font-bold text-navy">Fully Licensed & Insured</div>

@@ -39,7 +39,7 @@ export function ServicesSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="section-kicker mb-5">
-              <Waves className="h-4 w-4 text-orange" />
+              <Waves className="h-4 w-4 text-teal" />
               Core Services
             </div>
             <h2 className="section-title mb-5">
@@ -60,8 +60,8 @@ export function ServicesSection() {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="mb-6 flex items-center justify-between">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgb(255_140_0/0.1)]">
-                      <Icon className="h-7 w-7 text-orange" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[rgb(0_166_153/0.1)]">
+                      <Icon className="h-7 w-7 text-teal" />
                     </div>
                   </div>
                   <h3 className="font-display text-2xl font-bold text-navy mb-3">
@@ -73,7 +73,7 @@ export function ServicesSection() {
                   <div className="mb-8 space-y-2.5 border-t border-[rgb(11_49_92/0.08)] pt-5">
                     {service.features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3 text-sm text-gray-body">
-                        <div className="mt-1.5 h-2 w-2 rounded-full bg-orange" />
+                        <div className="mt-1.5 h-2 w-2 rounded-full bg-teal" />
                         <span>{feature}</span>
                       </div>
                     ))}
@@ -88,7 +88,7 @@ export function ServicesSection() {
                     </Button>
                     <a
                       href="tel:+15614040669"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-orange transition-colors hover:text-orange/80"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-teal transition-colors hover:text-teal/80"
                     >
                       <Phone className="h-4 w-4" />
                       Talk to a specialist
