@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Marine-Industrial Color Palette */
+  --navy: 11 49 92;              /* Ocean Navy RGB */
+  --orange: 255 140 0;            /* Safety Orange RGB */
+  --white: 255 255 255;           /* Pure White RGB */
+  --gray-light: 248 249 250;      /* Cool Gray Light */
+  --gray-body: 88 102 122;        /* Slate Gray */
+  --gray-dark: 42 61 82;          /* Dark Navy-Gray */
+
+  /* Design Tokens */
+  --background: rgb(255 255 255);
+  --foreground: rgb(11 49 92);
+  --card: rgb(255 255 255);
+  --card-foreground: rgb(11 49 92);
+  --popover: rgb(255 255 255);
+  --popover-foreground: rgb(11 49 92);
+  --primary: rgb(11 49 92);
+  --primary-foreground: rgb(255 255 255);
+  --secondary: rgb(248 249 250);
+  --secondary-foreground: rgb(11 49 92);
+  --muted: rgb(248 249 250);
+  --muted-foreground: rgb(88 102 122);
+  --accent: rgb(255 140 0);
+  --accent-foreground: rgb(255 255 255);
+  --destructive: rgb(239 68 68);
+  --destructive-foreground: rgb(255 255 255);
+  --border: rgb(229 231 235);
+  --input: rgb(248 249 250);
+  --ring: rgb(11 49 92);
+  --chart-1: rgb(255 140 0);
+  --chart-2: rgb(11 49 92);
+  --chart-3: rgb(88 102 122);
+  --chart-4: rgb(34 197 94);
+  --chart-5: rgb(59 130 246);
+  --radius: 0.75rem;
+  --sidebar: rgb(255 255 255);
+  --sidebar-foreground: rgb(11 49 92);
+  --sidebar-primary: rgb(11 49 92);
+  --sidebar-primary-foreground: rgb(255 255 255);
+  --sidebar-accent: rgb(255 140 0);
+  --sidebar-accent-foreground: rgb(255 255 255);
+  --sidebar-border: rgb(229 231 235);
+  --sidebar-ring: rgb(11 49 92);
+}
+
+.dark {
+  --background: rgb(30 41 59);
+  --foreground: rgb(255 255 255);
+  --card: rgb(45 58 82);
+  --card-foreground: rgb(255 255 255);
+  --popover: rgb(30 41 59);
+  --popover-foreground: rgb(255 255 255);
+  --primary: rgb(255 255 255);
+  --primary-foreground: rgb(11 49 92);
+  --secondary: rgb(45 58 82);
+  --secondary-foreground: rgb(255 255 255);
+  --muted: rgb(45 58 82);
+  --muted-foreground: rgb(203 213 225);
+  --accent: rgb(255 140 0);
+  --accent-foreground: rgb(30 41 59);
+  --destructive: rgb(239 68 68);
+  --destructive-foreground: rgb(255 255 255);
+  --border: rgb(45 58 82);
+  --input: rgb(45 58 82);
+  --ring: rgb(255 140 0);
+  --chart-1: rgb(255 140 0);
+  --chart-2: rgb(59 130 246);
+  --chart-3: rgb(34 197 94);
+  --chart-4: rgb(168 85 247);
+  --chart-5: rgb(14 165 233);
+  --sidebar: rgb(11 49 92);
+  --sidebar-foreground: rgb(255 255 255);
+  --sidebar-primary: rgb(255 140 0);
+  --sidebar-primary-foreground: rgb(11 49 92);
+  --sidebar-accent: rgb(255 140 0);
+  --sidebar-accent-foreground: rgb(11 49 92);
+  --sidebar-border: rgb(45 58 82);
+  --sidebar-ring: rgb(255 140 0);
+}
+
+@theme inline {
+  --font-sans: 'var(--font-roboto)', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .text-navy {
+    @apply text-[rgb(var(--navy))];
+  }
+
+  .text-orange {
+    @apply text-[rgb(var(--orange))];
+  }
+
+  .text-gray-light {
+    @apply text-[rgb(var(--gray-light))];
+  }
+
+  .text-gray-body {
+    @apply text-[rgb(var(--gray-body))];
+  }
+
+  .bg-navy {
+    @apply bg-[rgb(var(--navy))];
+  }
+
+  .bg-orange {
+    @apply bg-[rgb(var(--orange))];
+  }
+
+  .bg-gray-light {
+    @apply bg-[rgb(var(--gray-light))];
+  }
+
+  .border-gray-light {
+    @apply border-[rgb(var(--gray-light))];
+  }
+
+  .border-navy {
+    @apply border-[rgb(var(--navy))];
+  }
+
+  .border-orange {
+    @apply border-[rgb(var(--orange))];
+  }
+
+  .hover\:text-orange:hover {
+    @apply text-[rgb(var(--orange))];
+  }
+
+  .hover\:bg-orange\/10:hover {
+    @apply bg-[rgb(var(--orange)_/_0.1)];
+  }
+
+  .hover\:bg-orange\/90:hover {
+    @apply bg-[rgb(var(--orange)_/_0.9)];
+  }
+
+  .focus\:border-orange:focus {
+    @apply border-[rgb(var(--orange))];
+  }
+
+  .focus\:ring-orange:focus {
+    @apply ring-[rgb(var(--orange))];
+  }
+}
