@@ -1,9 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+
+const navigationItems = [
+  { label: 'Services', href: '/#services' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Results', href: '/#results' },
+  { label: 'Coverage', href: '/#service-areas' },
+  { label: 'Contact', href: '/#contact' },
+];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,109 +22,113 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        'fixed left-0 right-0 top-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white shadow-md'
-          : 'bg-transparent'
-      }`}
+          ? 'border-b border-white/70 bg-white/88 shadow-[0_18px_60px_rgba(11,49,92,0.12)] backdrop-blur-xl'
+          : 'bg-gradient-to-b from-[rgb(11_49_92/0.45)] via-[rgb(11_49_92/0.18)] to-transparent'
+      )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <div className="text-2xl font-bold text-navy">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] text-sm font-bold text-white shadow-[0_12px_32px_rgba(255,140,0,0.35)]">
               ECB
+            </div>
+            <div>
+              <div className={cn('font-display text-base font-semibold uppercase tracking-[0.2em]', isScrolled ? 'text-navy' : 'text-white')}>
+                East Coast
+              </div>
+              <div className={cn('text-xs font-medium', isScrolled ? 'text-gray-body' : 'text-white/72')}>
+                Boat Removal & Recovery
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/#services" className="text-navy hover:text-orange transition-colors text-sm font-medium">
-              Services
-            </Link>
-            <Link href="/#how-it-works" className="text-navy hover:text-orange transition-colors text-sm font-medium">
-              How It Works
-            </Link>
-            <Link href="/#service-areas" className="text-navy hover:text-orange transition-colors text-sm font-medium">
-              Service Areas
-            </Link>
-            <Link href="/#contact" className="text-navy hover:text-orange transition-colors text-sm font-medium">
-              Contact
-            </Link>
+          <nav className="hidden items-center space-x-8 md:flex">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  'text-sm font-medium transition-colors',
+                  isScrolled ? 'text-navy hover:text-orange' : 'text-white/88 hover:text-white'
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Right Side: Phone + CTA */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden items-center space-x-4 md:flex">
             <a
               href="tel:+15614040669"
-              className="text-orange font-bold text-sm hover:text-orange/80 transition-colors"
+              className={cn(
+                'rounded-full px-4 py-2 text-sm font-semibold transition-colors',
+                isScrolled
+                  ? 'bg-[rgb(255_140_0/0.08)] text-orange hover:bg-[rgb(255_140_0/0.14)]'
+                  : 'bg-white/10 text-white hover:bg-white/16'
+              )}
             >
               (561) 404-0669
             </a>
             <Button
               asChild
-              className="bg-orange hover:bg-orange/90 text-white font-bold px-6 py-2 rounded-md transition-colors"
+              className="rounded-full bg-orange px-6 py-2 font-bold text-white shadow-[0_16px_32px_rgba(255,140,0,0.3)] transition-all hover:-translate-y-0.5 hover:bg-orange/90"
             >
-              <a href="#book">Get Quote</a>
+              <a href="/#contact">Get Quote</a>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="p-2 md:hidden"
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-navy" />
+              <X className={cn('h-6 w-6', isScrolled ? 'text-navy' : 'text-white')} />
             ) : (
-              <Menu className="w-6 h-6 text-navy" />
+              <Menu className={cn('h-6 w-6', isScrolled ? 'text-navy' : 'text-white')} />
             )}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-light py-4 space-y-4">
-            <Link
-              href="/#services"
-              className="block px-4 py-2 text-navy hover:bg-gray-light transition-colors rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/#how-it-works"
-              className="block px-4 py-2 text-navy hover:bg-gray-light transition-colors rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              How It Works
-            </Link>
-            <Link
-              href="/#service-areas"
-              className="block px-4 py-2 text-navy hover:bg-gray-light transition-colors rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Service Areas
-            </Link>
+          <div className="mb-4 rounded-3xl border border-white/60 bg-white/92 p-4 shadow-[0_18px_60px_rgba(11,49,92,0.14)] backdrop-blur-xl md:hidden">
+            <div className="space-y-2">
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-2xl px-4 py-3 text-navy transition-colors hover:bg-[rgb(11_49_92/0.04)]"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
             <a
               href="tel:+15614040669"
-              className="block px-4 py-2 text-orange font-bold"
+              className="mt-4 block rounded-2xl bg-[rgb(255_140_0/0.08)] px-4 py-3 font-bold text-orange"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               (561) 404-0669
             </a>
             <Button
               asChild
-              className="w-full bg-orange hover:bg-orange/90 text-white font-bold px-6 py-3 rounded-md transition-colors mx-4"
+              className="mt-3 w-full rounded-2xl bg-orange px-6 py-3 font-bold text-white transition-colors hover:bg-orange/90"
             >
-              <a href="#book">Get Quote</a>
+              <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                Get Quote
+              </a>
             </Button>
           </div>
         )}

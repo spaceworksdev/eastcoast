@@ -1,46 +1,33 @@
 import Link from 'next/link';
-import { Facebook, Youtube, Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { Clock, Phone } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-[rgb(8_37_70)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Main Footer Content */}
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-orange mb-4">ECB</h3>
-            <p className="text-gray-light text-sm leading-relaxed mb-4">
+            <h3 className="font-display text-2xl font-bold text-[rgb(255_198_116)] mb-4">East Coast Boat Removal</h3>
+            <p className="text-white/68 text-sm leading-relaxed mb-4">
               Professional boat removal and disposal services across Florida. Licensed, insured, and available 24/7.
             </p>
-            <div className="flex gap-4">
-              <a
-                href="#"
-                className="p-2 bg-orange/20 rounded-full hover:bg-orange/40 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5 text-orange" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-orange/20 rounded-full hover:bg-orange/40 transition-colors"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-5 h-5 text-orange" />
+            <div className="rounded-[1.4rem] border border-white/10 bg-[rgb(255_255_255/0.06)] p-4">
+              <div className="text-xs font-semibold uppercase tracking-[0.22em] text-white/42">Emergency Recovery Line</div>
+              <a href="tel:+15614040669" className="mt-2 block font-display text-2xl font-bold text-white transition-colors hover:text-[rgb(255_209_143)]">
+                (561) 404-0669
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-light hover:text-orange transition-colors text-sm"
+                  className="text-white/68 hover:text-[rgb(255_209_143)] transition-colors text-sm"
                 >
                   Home
                 </Link>
@@ -48,7 +35,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#services"
-                  className="text-gray-light hover:text-orange transition-colors text-sm"
+                  className="text-white/68 hover:text-[rgb(255_209_143)] transition-colors text-sm"
                 >
                   Services
                 </Link>
@@ -56,7 +43,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/#how-it-works"
-                  className="text-gray-light hover:text-orange transition-colors text-sm"
+                  className="text-white/68 hover:text-[rgb(255_209_143)] transition-colors text-sm"
                 >
                   How It Works
                 </Link>
@@ -64,15 +51,15 @@ export function Footer() {
               <li>
                 <Link
                   href="/#service-areas"
-                  className="text-gray-light hover:text-orange transition-colors text-sm"
+                  className="text-white/68 hover:text-[rgb(255_209_143)] transition-colors text-sm"
                 >
                   Service Areas
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors text-sm"
+                  href="/#contact"
+                  className="text-white/68 hover:text-[rgb(255_209_143)] transition-colors text-sm"
                 >
                   Contact
                 </Link>
@@ -80,74 +67,35 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Service Areas */}
           <div>
             <h4 className="text-lg font-bold mb-4">Service Areas</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors"
-                >
-                  Fort Lauderdale
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors"
-                >
-                  Miami
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors"
-                >
-                  Tampa
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors"
-                >
-                  Naples
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-light hover:text-orange transition-colors"
-                >
-                  Cape Coral
-                </a>
-              </li>
+              {['Fort Lauderdale', 'Miami', 'Tampa', 'Naples', 'Cape Coral', 'Palm Beach'].map((area) => (
+                <li key={area} className="text-white/68">{area}</li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h4 className="text-lg font-bold mb-4">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-orange flex-shrink-0 mt-1" />
+                <Phone className="mt-1 h-5 w-5 shrink-0 text-orange" />
                 <div>
-                  <div className="text-sm text-gray-light">Phone</div>
+                  <div className="text-sm text-white/48">Phone</div>
                   <a
                     href="tel:+15614040669"
-                    className="text-white font-bold hover:text-orange transition-colors"
+                    className="text-white font-bold hover:text-[rgb(255_209_143)] transition-colors"
                   >
                     (561) 404-0669
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-orange flex-shrink-0 mt-1" />
+                <Clock className="mt-1 h-5 w-5 shrink-0 text-orange" />
                 <div>
-                  <div className="text-sm text-gray-light">Hours</div>
-                  <div className="text-white text-sm">
+                  <div className="text-sm text-white/48">Hours</div>
+                  <div className="text-sm text-white/78">
                     <div>Mon-Fri: 7am-6pm</div>
                     <div>Sat-Sun: 8am-4pm</div>
                     <div>24/7 Emergency</div>
@@ -158,32 +106,22 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-navy/20 pt-8">
+        <div className="border-t border-white/10 pt-8">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-sm text-gray-light">
+            <div className="text-sm text-white/56">
               <p>© {currentYear} East Coast Boat Removal. All rights reserved.</p>
               <p className="mt-2">Serving Florida boat removal and disposal since 2015</p>
             </div>
             <div className="flex justify-end gap-6 text-sm">
-              <a
-                href="#"
-                className="text-gray-light hover:text-orange transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-light hover:text-orange transition-colors"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="#"
-                className="text-gray-light hover:text-orange transition-colors"
-              >
-                Sitemap
-              </a>
+              <Link href="/#contact" className="text-white/56 transition-colors hover:text-[rgb(255_209_143)]">
+                Contact Us
+              </Link>
+              <Link href="/#services" className="text-white/56 transition-colors hover:text-[rgb(255_209_143)]">
+                Services
+              </Link>
+              <Link href="/#service-areas" className="text-white/56 transition-colors hover:text-[rgb(255_209_143)]">
+                Coverage
+              </Link>
             </div>
           </div>
         </div>

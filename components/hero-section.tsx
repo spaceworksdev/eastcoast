@@ -1,96 +1,69 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
-import { BookingModal } from './booking-modal';
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
+import { ArrowRight, Check, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { BookingModal } from './booking-modal';
 
 export function HeroSection() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <section className="relative h-screen md:h-[600px] min-h-[500px] w-full text-white overflow-hidden">
-        {/* Background Image */}
+      <section className="relative isolate flex min-h-160 w-full items-center overflow-hidden text-white">
         <Image
           src="/hero-boat-removal.jpg"
           alt="Professional boat removal service in progress"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           quality={75}
         />
 
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-orange/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="hero-wash absolute inset-0" />
+        <div className="absolute inset-0 opacity-70 mix-blend-screen">
+          <div className="absolute -left-24 -top-16 h-64 w-64 rounded-full bg-[rgb(255_140_0/0.18)] blur-3xl" />
+          <div className="absolute inset-0 grid-pattern opacity-[0.12]" />
         </div>
 
-        {/* Content */}
-        <div className="relative pt-24 pb-20 h-full flex items-center">
+        <div className="relative mx-auto flex min-h-160 w-full max-w-7xl items-center px-4 pb-16 pt-28 sm:px-6 lg:px-8">
+          <div className="max-w-3xl rounded-4xl border border-white/12 bg-[rgb(11_49_92/0.26)] px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-md sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+            <div className="mb-5 inline-flex animate-fade-up items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/86 backdrop-blur-md">
+              <Check className="h-4 w-4 text-[rgb(255_184_76)]" />
+              Licensed and insured across Florida
+            </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="grid md:grid-cols-2 gap-12 items-center w-full">
-            {/* Left Content */}
-            <div className="space-y-6">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-balance">
-                Hassle-Free Boat Removal & Disposal on the East Coast
+            <div className="space-y-5">
+              <h1 className="animate-fade-up font-display text-5xl font-bold leading-[0.95] text-balance sm:text-6xl lg:text-7xl" style={{ animationDelay: '0.06s' }}>
+                Boat removal,
+                <span className="block text-gradient-accent">without the headache.</span>
               </h1>
 
-              <p className="text-xl text-gray-light leading-relaxed max-w-xl">
-                We handle all the logistics. Licensed, insured removal in 24-48 hours. No surprises. Just professional service.
+              <p className="animate-fade-up max-w-2xl text-lg leading-8 text-white/82 md:text-xl" style={{ animationDelay: '0.12s' }}>
+                Fast scheduling, clear pricing, and a professional crew that handles removal, recovery, and cleanup from start to finish.
               </p>
-
-              {/* Trust Bullets */}
-              <div className="space-y-3 pt-4">
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-orange flex-shrink-0" />
-                  <span className="text-white">Licensed & Insured</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-orange flex-shrink-0" />
-                  <span className="text-white">Serves All of Florida</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-orange flex-shrink-0" />
-                  <span className="text-white">24/7 Emergency Service</span>
-                </div>
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Button
-                  onClick={() => setShowModal(true)}
-                  className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-3 rounded-lg transition-all transform hover:scale-105 text-base"
-                >
-                  Get Free Quote
-                </Button>
-                <Button
-                  asChild
-                  className="border-2 border-white bg-transparent hover:bg-white/10 text-white font-bold px-8 py-3 rounded-lg transition-colors text-base"
-                >
-                  <a href="tel:+15614040669">Call Now</a>
-                </Button>
-              </div>
             </div>
 
-            {/* Right Visual */}
-            <div className="hidden md:block">
-              <div className="relative h-96 bg-gradient-to-br from-orange/20 to-white/10 rounded-2xl border border-white/20 flex items-center justify-center backdrop-blur-sm">
-                <div className="text-center space-y-4">
-                  <div className="text-6xl font-bold text-orange">24/7</div>
-                  <p className="text-lg text-white">Emergency Boat Removal Service</p>
-                  <p className="text-gray-light">Available in Florida</p>
-                </div>
-              </div>
+            <div className="animate-fade-up mt-8 flex flex-col gap-4 sm:flex-row" style={{ animationDelay: '0.18s' }}>
+              <Button
+                onClick={() => setShowModal(true)}
+                className="h-12 rounded-full bg-orange px-8 text-base font-bold text-white shadow-[0_18px_40px_rgba(255,140,0,0.32)] transition-all hover:-translate-y-0.5 hover:bg-orange/90"
+              >
+                Get Free Quote
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+              <Button
+                asChild
+                className="h-12 rounded-full border border-white/24 bg-white/10 px-8 text-base font-bold text-white backdrop-blur-md transition-colors hover:bg-white/16"
+              >
+                <a href="tel:+15614040669">
+                  <Phone className="h-4 w-4" />
+                  Call Now
+                </a>
+              </Button>
             </div>
           </div>
-        </div>
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card';
-import { MapPin, Check } from 'lucide-react';
+import { Check, Compass, MapPin, PhoneCall } from 'lucide-react';
 
 const serviceAreas = [
   'Fort Lauderdale',
@@ -21,42 +21,46 @@ const serviceAreas = [
 
 export function ServiceAreasSection() {
   return (
-    <section id="service-areas" className="py-20 bg-gray-light">
+    <section id="service-areas" className="surface-tint py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4 text-balance">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="section-kicker mb-5">
+            <Compass className="h-4 w-4 text-orange" />
+            Coverage Area
+          </div>
+          <h2 className="section-title mb-5">
             We Serve All of Florida
           </h2>
-          <p className="text-xl text-gray-body max-w-2xl mx-auto">
+          <p className="section-copy max-w-2xl mx-auto">
             Licensed and insured boat removal available in all major coastal areas
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left: Map Placeholder */}
-          <div className="bg-white rounded-xl p-8 border border-gray-light/50">
-            <div className="bg-gradient-to-br from-orange/10 to-navy/10 rounded-lg h-80 flex items-center justify-center relative overflow-hidden">
-              {/* Decorative Map */}
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-1/4 left-1/4 w-20 h-20 bg-orange rounded-full"></div>
-                <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-navy rounded-full"></div>
-                <div className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-orange rounded-full"></div>
+          <div className="soft-panel rounded-4xl p-8">
+            <div className="relative flex h-80 items-center justify-center overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,rgb(236_244_249),rgb(255_255_255))]">
+              <div className="absolute inset-0 grid-pattern opacity-40" />
+              <div className="absolute inset-0 opacity-45">
+                <div className="absolute left-[18%] top-[20%] h-24 w-24 rounded-full bg-[rgb(255_140_0/0.16)] blur-xl" />
+                <div className="absolute right-[20%] top-[30%] h-16 w-16 rounded-full bg-[rgb(11_49_92/0.16)] blur-lg" />
+                <div className="absolute bottom-[18%] left-[35%] h-24 w-24 rounded-full bg-[rgb(255_140_0/0.16)] blur-xl" />
               </div>
               <div className="text-center relative z-10">
-                <MapPin className="w-16 h-16 text-orange mx-auto mb-4" />
-                <p className="text-navy font-bold text-lg">
+                <div className="mx-auto mb-4 flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full bg-white shadow-[0_14px_36px_rgba(11,49,92,0.12)]">
+                  <MapPin className="w-10 h-10 text-orange" />
+                </div>
+                <p className="font-display text-2xl font-bold text-navy">
                   Statewide Coverage
                 </p>
-                <p className="text-gray-body">
-                  All Florida Coastal Areas
+                <p className="mt-2 text-gray-body">
+                  Dispatch support across Atlantic coast, Gulf coast, inland marinas, and the Keys.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right: Service Areas List */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-navy mb-6">
+            <h3 className="font-display text-2xl font-bold text-navy mb-6">
               Primary Service Areas
             </h3>
 
@@ -64,26 +68,29 @@ export function ServiceAreasSection() {
               {serviceAreas.map((area, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-light/50 hover:border-orange hover:shadow-md transition-all"
+                  className="flex items-center gap-3 rounded-2xl border border-[rgb(11_49_92/0.08)] bg-white px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-[rgb(255_140_0/0.28)] hover:shadow-[0_14px_28px_rgba(11,49,92,0.08)]"
                 >
-                  <Check className="w-5 h-5 text-orange flex-shrink-0" />
+                  <Check className="h-5 w-5 shrink-0 text-orange" />
                   <span className="text-navy font-medium">{area}</span>
                 </div>
               ))}
             </div>
 
-            {/* Additional Info */}
-            <Card className="p-6 bg-white border-orange/30 border-2">
-              <p className="text-gray-body text-sm mb-3">
-                <span className="font-bold text-navy">Can't find your area?</span>
+            <Card className="soft-card rounded-[1.6rem] border-2 border-[rgb(255_140_0/0.18)] p-6">
+              <p className="mb-3 text-sm text-gray-body">
+                <span className="font-bold text-navy">Outside these cities?</span>
               </p>
               <a
                 href="tel:+15614040669"
-                className="inline-flex items-center gap-2 text-orange font-bold hover:text-orange/80 transition-colors"
+                className="inline-flex items-center gap-2 font-bold text-orange transition-colors hover:text-orange/80"
               >
+                <PhoneCall className="h-4 w-4" />
                 Call us at (561) 404-0669
                 <span className="text-lg">→</span>
               </a>
+              <p className="mt-3 text-sm text-gray-body">
+                If the haul-out logistics make sense, we can often service surrounding locations as well.
+              </p>
             </Card>
           </div>
         </div>

@@ -2,44 +2,51 @@ import { Star, Shield, Users } from 'lucide-react';
 
 export function TrustBar() {
   return (
-    <div className="bg-gray-light border-b border-gray-light/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-6">
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {/* Ratings */}
-          <div className="flex items-center justify-center md:justify-start gap-4">
-            <div className="flex gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-5 h-5 fill-orange text-orange"
-                />
-              ))}
+    <section className="relative z-20 -mt-10 px-4 pb-6 sm:px-6 lg:px-8">
+      <div className="soft-panel mx-auto max-w-7xl rounded-4xl px-6 py-6 sm:px-8">
+        <div className="grid gap-5 md:grid-cols-3 md:gap-8">
+          <div className="rounded-[1.4rem] border border-[rgb(11_49_92/0.08)] bg-white/80 px-5 py-5 backdrop-blur-md">
+            <div className="mb-4 flex items-center gap-4">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className="h-5 w-5 fill-orange text-orange"
+                  />
+                ))}
+              </div>
             </div>
             <div>
-              <div className="font-bold text-navy text-lg">4.9 / 5</div>
-              <div className="text-sm text-gray-body">127 Google Reviews</div>
-            </div>
-          </div>
-
-          {/* Licensed & Insured */}
-          <div className="flex items-center justify-center gap-4">
-            <Shield className="w-8 h-8 text-orange flex-shrink-0" />
-            <div>
-              <div className="font-bold text-navy">Fully Licensed</div>
-              <div className="text-sm text-gray-body">& Insured</div>
+              <div className="font-display text-2xl font-bold text-navy">4.9 / 5</div>
+              <div className="text-sm text-gray-body">127 verified Google reviews</div>
             </div>
           </div>
 
-          {/* Trusted By */}
-          <div className="flex items-center justify-center md:justify-end gap-4">
-            <Users className="w-8 h-8 text-orange flex-shrink-0" />
-            <div>
-              <div className="font-bold text-navy">500+</div>
-              <div className="text-sm text-gray-body">Satisfied Customers</div>
+          <div className="rounded-[1.4rem] border border-[rgb(11_49_92/0.08)] bg-white/80 px-5 py-5 backdrop-blur-md">
+            <div className="flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(255_140_0/0.1)]">
+                <Shield className="h-6 w-6 shrink-0 text-orange" />
+              </div>
+              <div>
+                <div className="font-display text-xl font-bold text-navy">Fully Licensed & Insured</div>
+                <div className="text-sm text-gray-body">Professional handling, transport, and disposal documentation</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[1.4rem] border border-[rgb(11_49_92/0.08)] bg-white/80 px-5 py-5 backdrop-blur-md">
+            <div className="flex items-center gap-4">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[rgb(11_49_92/0.08)]">
+                <Users className="h-6 w-6 shrink-0 text-navy" />
+              </div>
+              <div>
+                <div className="font-display text-xl font-bold text-navy">500+ successful removals</div>
+                <div className="text-sm text-gray-body">Trusted by homeowners, marinas, insurers, and property managers</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

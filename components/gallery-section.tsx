@@ -1,53 +1,60 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
 import { Card } from '@/components/ui/card';
+import { ArrowRight, Camera, Sparkles } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface GalleryItem {
   id: number;
   title: string;
-  before: string;
-  after: string;
+  image: string;
   description: string;
+  outcome: string;
+  turnaround: string;
 }
 
 const galleryItems: GalleryItem[] = [
   {
     id: 1,
     title: 'Backyard Eyesore',
-    before: '/gallery-1-before.jpg',
-    after: '/gallery-1-before.jpg',
+    image: '/gallery-1-before.jpg',
     description: 'Old sailboat removal from residential property',
+    outcome: 'Property cleared and haul-away completed without damaging the driveway or fence line.',
+    turnaround: 'Completed in 1 day',
   },
   {
     id: 2,
     title: 'Marina Recovery',
-    before: '/gallery-1-before.jpg',
-    after: '/gallery-1-before.jpg',
+    image: '/gallery-1-before.jpg',
     description: 'Sunken vessel professional recovery',
+    outcome: 'Recovered, documented, and removed with coordinated marina access and cleanup.',
+    turnaround: 'Emergency response',
   },
   {
     id: 3,
     title: 'Overgrown Property',
-    before: '/gallery-1-before.jpg',
-    after: '/gallery-1-before.jpg',
+    image: '/gallery-1-before.jpg',
     description: 'Complete property cleanup and restoration',
+    outcome: 'Boat, debris, and abandoned materials removed so the lot could be reused immediately.',
+    turnaround: 'Scheduled within 48 hrs',
   },
 ];
 
 export function GallerySection() {
-  const [activeSlider, setActiveSlider] = useState<number>(0);
-
   return (
-    <section className="py-20 bg-white">
+    <section id="results" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4 text-balance">
+        <div className="mx-auto mb-16 max-w-3xl text-center">
+          <div className="section-kicker mb-5">
+            <Camera className="h-4 w-4 text-orange" />
+            Recent Work
+          </div>
+          <h2 className="section-title mb-5">
             See Our Work
           </h2>
-          <p className="text-xl text-gray-body max-w-2xl mx-auto">
-            Real boat removals. Real results.
+          <p className="section-copy max-w-2xl mx-auto">
+            A sample of the removals and recoveries our team handles across residential lots, marinas, and coastal properties.
           </p>
         </div>
 
@@ -55,74 +62,58 @@ export function GallerySection() {
           {galleryItems.map((item, idx) => (
             <Card
               key={item.id}
-              className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-shadow"
+              className="soft-card overflow-hidden rounded-[1.8rem] border-0 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(11,49,92,0.12)]"
             >
-              {/* Before/After Slider */}
-              <div className="relative w-full h-64 bg-gray-light overflow-hidden">
+              <div className="relative h-72 w-full overflow-hidden bg-gray-light">
                 <Image
-                  src={item.after}
-                  alt={`${item.title} after`}
+                  src={item.image}
+                  alt={item.title}
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={idx === 0}
                 />
-
-                {/* Before Image Overlay */}
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{
-                    width: `${activeSlider === idx ? 50 : 100}%`,
-                  }}
-                >
-                  <Image
-                    src={item.before}
-                    alt={`${item.title} before`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_25%,rgba(11,49,92,0.82)_100%)]" />
+                <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-navy">
+                  {item.turnaround}
                 </div>
-
-                {/* Labels */}
-                <div className="absolute top-4 left-4 bg-black/60 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  BEFORE
+                <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/12 p-4 backdrop-blur-md">
+                  <div className="mb-1 text-xs font-semibold uppercase tracking-[0.22em] text-[rgb(255_209_143)]">Project Snapshot</div>
+                  <div className="font-display text-2xl font-bold text-white">{item.title}</div>
                 </div>
-                <div className="absolute top-4 right-4 bg-orange text-white px-3 py-1 rounded-full text-xs font-bold">
-                  AFTER
-                </div>
-
-                {/* Slider Divider */}
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white cursor-col-resize transition-all"
-                  style={{
-                    left: `${activeSlider === idx ? 50 : 100}%`,
-                  }}
-                  onMouseEnter={() => setActiveSlider(idx)}
-                />
               </div>
 
-              {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-navy mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-body text-sm leading-relaxed">
-                  {item.description}
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-orange">{item.description}</p>
+                <p className="text-sm leading-7 text-gray-body">
+                  {item.outcome}
                 </p>
               </div>
             </Card>
           ))}
         </div>
 
-        {/* View All Link */}
-        <div className="text-center mt-12">
-          <a
-            href="#"
-            className="inline-block text-orange font-bold hover:text-orange/80 transition-colors text-lg"
-          >
-            View Full Project Gallery →
-          </a>
+        <div className="surface-tint mt-12 rounded-4xl border border-[rgb(11_49_92/0.08)] px-6 py-8 sm:px-8">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.22em] text-orange">
+                <Sparkles className="h-4 w-4" />
+                Clean finish, not just haul-away
+              </div>
+              <p className="mt-3 max-w-2xl text-gray-body leading-7">
+                Every project is scoped for access, equipment, safety, and cleanup so the job ends with the site usable again.
+              </p>
+            </div>
+            <Button
+              asChild
+              className="h-11 rounded-full bg-navy px-6 text-white hover:bg-navy/90"
+            >
+              <a href="#contact">
+                Request a Project Review
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

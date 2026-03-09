@@ -31,63 +31,67 @@ export function HowItWorks() {
 
   return (
     <>
-      <section id="how-it-works" className="py-20 bg-gray-light">
+      <section id="how-it-works" className="surface-tint py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4 text-balance">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div className="section-kicker mb-5">Simple Process</div>
+            <h2 className="section-title mb-5">
               How It Works
             </h2>
-            <p className="text-xl text-gray-body">
+            <p className="section-copy">
               A simple, transparent process from start to finish
             </p>
           </div>
 
-          {/* Desktop Process Flow */}
           <div className="hidden md:block">
-            <div className="grid grid-cols-3 gap-8 relative">
-              {/* Connection Line */}
-              <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-orange via-orange to-transparent -z-10"></div>
+            <div className="relative grid grid-cols-3 gap-8">
+              <div className="absolute left-[16%] right-[16%] top-16 h-px bg-[linear-gradient(90deg,rgb(255_140_0/0.15),rgb(255_140_0),rgb(255_140_0/0.15))]" />
 
               {steps.map((step, idx) => {
                 const Icon = step.icon;
                 return (
-                  <div key={step.number} className="text-center">
-                    <div className="flex justify-center mb-6">
-                      <div className="relative w-20 h-20 bg-orange rounded-full flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-white" />
+                  <div key={step.number} className="soft-card relative rounded-[1.8rem] px-8 pb-8 pt-10 text-center">
+                    <div className="mb-6 flex justify-center">
+                      <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))] shadow-[0_18px_40px_rgba(255,140,0,0.24)]">
+                        <Icon className="h-10 w-10 text-white" />
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-navy mb-2">
+                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-orange">
                       Step {step.number}
-                    </h3>
-                    <h4 className="text-lg font-bold text-navy mb-3">
+                    </div>
+                    <h3 className="font-display text-2xl font-bold text-navy mb-3">
                       {step.title}
-                    </h4>
+                    </h3>
                     <p className="text-gray-body leading-relaxed">
                       {step.description}
                     </p>
+                    {idx < steps.length - 1 && (
+                      <div className="absolute right-[-1.5rem] top-14 z-10 hidden h-10 w-10 items-center justify-center rounded-full bg-white text-orange shadow-[0_10px_30px_rgba(11,49,92,0.1)] lg:flex">
+                        →
+                      </div>
+                    )}
                   </div>
                 );
               })}
             </div>
           </div>
 
-          {/* Mobile Process Flow */}
           <div className="md:hidden space-y-8">
             {steps.map((step) => {
               const Icon = step.icon;
               return (
-                <div key={step.number} className="flex gap-6">
+                <div key={step.number} className="soft-card flex gap-6 rounded-[1.6rem] p-6">
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(255_140_0),rgb(255_184_76))]">
+                      <Icon className="h-8 w-8 text-white" />
                     </div>
                     {step.number < steps.length && (
-                      <div className="w-1 h-8 bg-orange mt-2"></div>
+                      <div className="mt-2 h-8 w-1 bg-orange"></div>
                     )}
                   </div>
                   <div className="pt-2 pb-4">
-                    <h3 className="text-lg font-bold text-navy mb-1">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-orange">Step {step.number}</div>
+                    <h3 className="font-display text-lg font-bold text-navy mb-1">
                       Step {step.number}: {step.title}
                     </h3>
                     <p className="text-gray-body">
@@ -99,14 +103,21 @@ export function HowItWorks() {
             })}
           </div>
 
-          {/* CTA */}
-          <div className="text-center mt-16">
-            <Button
-              onClick={() => setShowModal(true)}
-              className="bg-orange hover:bg-orange/90 text-white font-bold px-8 py-3 rounded-lg transition-all transform hover:scale-105"
-            >
-              Ready to Get Started? Call Now
-            </Button>
+          <div className="soft-panel mt-14 rounded-4xl px-6 py-8 sm:px-8">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <div className="font-display text-2xl font-bold text-navy">You send the photos. We handle the rest.</div>
+                <p className="mt-2 max-w-2xl text-gray-body">
+                  Clear quote, scheduled pickup, documented removal, and a final handoff that leaves the site clean.
+                </p>
+              </div>
+              <Button
+                onClick={() => setShowModal(true)}
+                className="h-12 rounded-full bg-orange px-8 font-bold text-white shadow-[0_18px_40px_rgba(255,140,0,0.24)] hover:bg-orange/90"
+              >
+                Request Your Quote
+              </Button>
+            </div>
           </div>
         </div>
       </section>
