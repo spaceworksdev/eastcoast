@@ -28,7 +28,7 @@ export function HeroSection() {
         </div>
 
         <div className="relative mx-auto flex min-h-160 w-full max-w-7xl items-center px-4 pb-16 pt-28 sm:px-6 lg:px-8">
-          <div className="max-w-3xl rounded-4xl border border-white/12 bg-[rgb(11_49_92/0.26)] px-6 py-8 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur-md sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+          <div className="max-w-5xl sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <div className="mb-5 inline-flex animate-fade-up items-center gap-2 rounded-full border border-white/14 bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/86 backdrop-blur-md">
               <Check className="h-4 w-4 text-[rgb(64_200_188)]" />
               Licensed and insured across Florida
